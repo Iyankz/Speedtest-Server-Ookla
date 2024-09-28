@@ -3,7 +3,7 @@ Speedtest Server Ookla
 
 1. Spesifikasi server sebelum melakukan installasi harus di sesuaikan dengan acuan pada halaman : https://support.ookla.com/hc/en-us/articles/234578628-Speedtest-Server-Requirements
 2. Install Ubuntu Server, untuk langkah2 ini di jalankan pada ubuntu 22.04.5 https://releases.ubuntu.com/jammy/ubuntu-22.04.5-live-server-amd64.iso
-3. Siapkan IP Public dan subdomain untuk speedtest server
+3. Siapkan IP Public dan domain untuk speedtest server
 4. Akses Server (Via SSH atau yang lainnya)
 5. Download file Installasi ( bisa langsung atau di arahkan ke directory tertentu)
 ##
@@ -76,3 +76,9 @@ Jika hasilnya sama serperti pada gambar di atas, maka proses installasi sudah se
 ##
     su ookla01 -c '/home/ookla01/OoklaServer --daemon'
 Sesuaikan username yang di gunakan, pada contoh ini menggunakan nama ookla01
+
+15. Update SSL pada domain yang kita gunakan
+##
+    apt install certbot python3-certbot-apache apache2 -y
+##
+    certbot --apache --agree-tos --email you@yordimain.com -d yourdomain.com
